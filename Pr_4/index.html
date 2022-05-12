@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="./script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </head>
+  <body>
+    <div id="welcome" data-role="page">
+      <div data-role="header">
+        <h1>Convert Kms to Miles</h1>
+        <div data-role="navbar" class="ui-body-c">
+          <ul>
+            <li>
+              <a href="#" class="ui-btn-active ui-state-persist">KM to Miles</a>
+            </li>
+            <li><a href="#first">Miles to KM</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- /header -->
+
+      <div role="content" class="ui-content">
+        <center>
+          <form style="width: 50%">
+            <label for="kms"><h1>Enter in kilometers:</h1></label>
+            <input type="text" placeholder="km" name="kms" id="km" />
+            <button
+              type="button"
+              class="ui-btn ui-btn-mini ui-corner-all"
+              onclick="kmtomiles()"
+            >
+              Convert
+            </button>
+          </form>
+          <h1>In miles :</h1>
+          <p id="miles1"></p>
+        </center>
+      </div>
+      <!-- /content -->
+
+      <div data-role="footer" data-position="fixed">
+        <h4>My Footer</h4>
+      </div>
+      <!-- /footer -->
+    </div>
+
+    <div id="first" data-role="page">
+      <!-- <div data-role="header">
+          <h1>Convert Miles to Kms</h1>
+          <div data-role="navbar" class="ui-body-c">
+            <ul>
+              <li>
+                <a href="#welcome" >Miles to kms</a>
+              </li>
+              <li><a href="#" class="ui-btn-active ui-state-persist">Miles to KM</a></li>
+            </ul>
+          </div>
+        </div> -->
+      <div data-role="header">
+        <h1>Convert Miles to Kms</h1>
+        <div data-role="navbar" class="ui-body-c">
+          <ul>
+            <li><a href="#welcome">KM to Miles </a></li>
+            <li>
+              <a href="#" class="ui-btn-active ui-state-persist">Miles to KM</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /header -->
+
+      <div role="content" class="ui-content">
+        <center>
+          <form style="width: 50%">
+            <label for="miles"><h1>Enter in miles:</h1></label>
+            <input type="text" placeholder="miles" name="miles" id="mile" />
+            <button
+              type="button"
+              class="ui-btn ui-btn-mini ui-corner-all"
+              onclick="milestokms()"
+            >
+              Convert
+            </button>
+          </form>
+          <h1>In kilometers :</h1>
+          <p id="kms1"></p>
+        </center>
+      </div>
+      <!-- /content -->
+
+      <div data-role="footer" data-position="fixed">
+        <h4>My Footer</h4>
+      </div>
+      <!-- /page -->
+    </div>
+  </body>
+</html>

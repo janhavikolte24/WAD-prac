@@ -1,0 +1,11 @@
+.jumbotron{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(203, 207, 213);
+    padding : 3%;
+}
+img{
+    width:100%;
+}

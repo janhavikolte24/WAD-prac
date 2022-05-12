@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic table</title>
+
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid;
+        margin: 0;
+      }
+      table {
+        margin: 0;
+      }
+      .content1 {
+        margin: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <input type="number" id="row" placeholder="Enter no of rows" /> -->
+    <input type="text" id="input1" placeholder="ex:3#3#2" />
+    <!-- <input type="number" id="row" placeholder="Enter no of rows" /> -->
+    <input type="text" id="input2" placeholder="ex:3#3#3" />
+    <!-- <input type="number" id="column" placeholder="Enter no of columns" />
+    <input type="number" id="value" placeholder="Enter starting value" /> -->
+    <input
+      type="button"
+      id="createTable"
+      value="Create table"
+      onclick="createtable()"
+    />
+
+    <div class="content1">
+      <table id="table1"></table>
+    </div>
+
+    <div class="content1">
+      <table id="table2"></table>
+    </div>
+
+    <div class="content1">
+      <table id="table3"></table>
+    </div>
+
+    <script type="text/javascript">
+      function createtable() {
+        const input1 = document.getElementById("input1").value;
+        const input2 = document.getElementById("input2").value;
+        const [row1, column1, value1] = input1.split("#");
+        const [row2, column2, value2] = input2.split("#");
+        // const rows = document.getElementById("row").value;
+        // const columns = document.getElementById("column").value;
+        // const values = document.getElementById("value").value;
+        console.log("hello");
+        // console.log(rows, columns, values);
+        if (row1 === row2 && column1 === column2) {
+          var start1 = value1;
+          var start2 = value2;
+          //   var start3 = value1*value2;
+          var output1 = "";
+          var output2 = "";
+          var output3 = "";
+          for (let i = 0; i < row1; i++) {
+            output1 += "<tr>";
+            output2 += "<tr>";
+            output3 += "<tr>";
+
+            for (let j = 0; j < column1; j++) {
+              output1 += "<td>";
+              output1 += start1 * (i + 1);
+              output1 += "</td>";
+
+              output2 += "<td>";
+              output2 += start2 * (i + 1);
+              output2 += "</td>";
+
+              output3 += "<td>";
+              output3 += start1 * (i + 1) * start2 * (i + 1);
+              output3 += "</td>";
+              start1++;
+              start2++;
+            }
+            start1 = value1;
+            start2 = value2;
+            output1 += "</tr>";
+            output2 += "</tr>";
+            output3 += "</tr>";
+          }
+          document.getElementById("table1").innerHTML = output1;
+          document.getElementById("table2").innerHTML = output2;
+          document.getElementById("table3").innerHTML = output3;
+        } else {
+          var start1 = value1;
+          var start2 = value2;
+          //   var start3 = value1*value2;
+          var output1 = "";
+          var output2 = "";
+
+          for (let i = 0; i < row1; i++) {
+            output1 += "<tr>";
+            for (let j = 0; j < column1; j++) {
+              output1 += "<td>";
+              output1 += start1 * (i + 1);
+              output1 += "</td>";
+
+              start1++;
+            }
+
+            start1 = value1;
+
+            output1 += "</tr>";
+          }
+
+          for (let i = 0; i < row2; i++) {
+            output2 += "<tr>";
+            for (let j = 0; j < column2; j++) {
+              output2 += "<td>";
+              output2 += start2 * (i + 1);
+              output2 += "</td>";
+
+              start2++;
+            }
+
+            start2 = value2;
+
+            output2 += "</tr>";
+          }
+          document.getElementById("table1").innerHTML = output1;
+          document.getElementById("table2").innerHTML = output2;
+        }
+      }
+    </script>
+  </body>
+</html>

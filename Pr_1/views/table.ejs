@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getStudents</title>
+  </head>
+  <body>
+    <p>Count : <%= count %></p>
+    <% if(student!=null){ %>
+    <table border="10">
+      <tr>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Wad marks</th>
+        <th>CC marks</th>
+        <th>CNS marks</th>
+        <th>DSBDA marks</th>
+        <th>AI marks</th>
+      </tr>
+
+      <% student.forEach((item,index)=>{ %>
+      <tr>
+        <td><%= item["Name"]%></td>
+        <td><%= item["Roll_no"]%></td>
+        <td><%= item["WAD_marks"]%></td>
+        <td><%= item["CC_marks"]%></td>
+        <td><%= item["CNS_marks"]%></td>
+        <td><%= item["DSBDA_marks"]%></td>
+        <td><%= item["AI_marks"]%></td>
+        <td>
+          <form method="post" action="/deleteStudents/<%= item._id %>">
+            <button type="submit">Delete</button>
+          </form>
+          <form method="post" action="/updateMarks/<%= item._id %>">
+            <button type="submit">Update</button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+
+    <% } %>
+  </body>
+</html>
